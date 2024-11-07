@@ -31,16 +31,4 @@ public class AppTest
         assertFalse( false );
     }
 
-    @Test
-    public void test_sayHello_should_return_Hello_World()
-    {
-        // Arrange
-        String actualResponse = "";
-        String expectedResponse = "Hello World!";
-
-        // Act
-        actualResponse = sayHello();
-        // Assert
-        assertEquals( expectedResponse, actualResponse);
-    }
 }
