@@ -31,8 +31,16 @@ pipeline {
                 scannerHome = tool 'sonarqube'
             }
             steps {
-                withSonarQubeEnv('sonar-qube-1') {        
-                    sh "${scannerHome}/bin/sonar-scanner"
+                withSonarQubeEnv('sonar-qube-1') {
+                    sh """
+                        ${scannerHome}/bin/sonar-scanner \
+                        -Dsonar.java.binaries=target/classes \
+                        -Dsonar.projectKey=com.qa:hello-world-maven \
+                        -Dsonar.projectName=Hello World Maven Project \
+                        -Dsonar.projectVersion=1.0-SNAPSHOT \
+                        -Dsonar.sources=src/main/java \
+                        -Dsonar.tests=src/test/java
+                    """
                 }
                 timeout(time: 10, unit: 'MINUTES') {
                     waitForQualityGate abortPipeline:true
