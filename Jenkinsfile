@@ -27,9 +27,16 @@ pipeline {
             }
         }
         stage('SonarQube Analysis') {
-            def mvn = tool 'Default Maven';
-            withSonarQubeEnv() {
-                sh "${mvn}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=sq-jenkins-pipeline-challenge"
+            environment {
+                scannerHome = tool 'sonarqube'
+            }
+            steps {
+                withSonarQubeEnv('sonar-qube-1') {        
+                    sh "${scannerHome}/bin/sonar-scanner"
+                }
+                timeout(time: 10, unit: 'MINUTES') {
+                    waitForQualityGate abortPipeline:true
+                }   
             }
         }
     }
