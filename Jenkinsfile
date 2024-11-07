@@ -35,8 +35,8 @@ pipeline {
                     sh """
                         ${scannerHome}/bin/sonar-scanner \
                         -Dsonar.java.binaries=target/classes \
-                        -Dsonar.projectKey=com.qa:hello-world-maven \
-                        -Dsonar.projectName=Hello World Maven Project \
+                        -Dsonar.projectKey=com.qa:jenkins-pipeline-challenge \
+                        -Dsonar.projectName=Jenkins Pipeline Challenge \
                         -Dsonar.projectVersion=1.0-SNAPSHOT \
                         -Dsonar.sources=src/main/java \
                         -Dsonar.tests=src/test/java
