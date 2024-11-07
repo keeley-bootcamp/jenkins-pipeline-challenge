@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Compile') {
             steps {
-                sh "mvn clean compile"
+                sh "mvn clean compile"  // Ensure code is compiled before analysis
             }
         }
         stage('Test') {
@@ -36,8 +36,9 @@ pipeline {
                 }
                 timeout(time: 10, unit: 'MINUTES') {
                     waitForQualityGate abortPipeline:true
-                }   
+                }
             }
         }
     }
 }
+
