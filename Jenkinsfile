@@ -32,6 +32,7 @@ pipeline {
             }
             steps {
                 withSonarQubeEnv('sonar-qube-1') {
+                    // running sonarqube scanner with necessary project details to scan code
                     sh """
                         ${scannerHome}/bin/sonar-scanner \
                         -Dsonar.java.binaries=target/classes \
