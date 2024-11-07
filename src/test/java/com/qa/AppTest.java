@@ -1,7 +1,6 @@
 package com.qa;
 
 import org.junit.jupiter.api.Test;
-import static com.qa.App.sayHello;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
