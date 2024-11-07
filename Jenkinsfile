@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Compile') {
             steps {
-                sh "mvn clean compile"  // Ensure code is compiled before analysis
+                sh "mvn clean compile" 
             }
         }
         stage('Test') {
