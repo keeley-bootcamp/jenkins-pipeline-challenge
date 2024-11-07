@@ -36,7 +36,7 @@ pipeline {
                         ${scannerHome}/bin/sonar-scanner \
                         -Dsonar.java.binaries=target/classes \
                         -Dsonar.projectKey=com.qa:jenkins-pipeline-challenge \
-                        -Dsonar.projectName=Jenkins Pipeline Challenge \
+                        -Dsonar.projectName=jenkins-pipeline-challenge \
                         -Dsonar.projectVersion=1.0-SNAPSHOT \
                         -Dsonar.sources=src/main/java \
                         -Dsonar.tests=src/test/java
